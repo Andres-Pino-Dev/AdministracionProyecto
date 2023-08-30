@@ -1,0 +1,88 @@
+<div mat-dialog-title>
+  <h1>Registar Usaurio</h1>
+</div>
+<mat-divider></mat-divider>
+<form [formGroup]="frm_user">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Usaurio</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Usaurio"
+          formControlName="usuario"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Primer Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Primer Nombre"
+          formControlName="primerNombre"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Segundo Nombre</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Segundo Nombre"
+          formControlName="segundoNombre"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Segundo Apellido</mat-label>
+        <input
+          matInput
+          placeholder="Segundo Apellido"
+          formControlName="segundoApellido"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-select
+          placeholder="Seleccionar"
+          formControlName="idDepartamento"
+          required
+        >
+          <mat-option *ngFor="let dep of departamentos" [value]="dep.id">
+            {{ dep.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-select
+          placeholder="Seleccionar"
+          formControlName="idCargo"
+          required
+        >
+          <mat-option *ngFor="let car of cargos" [value]="car.id">
+            {{ car.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="add()"
+        [disabled]="frm_user.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
