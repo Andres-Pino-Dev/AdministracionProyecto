@@ -10,6 +10,7 @@ import { FormGroup,FormControl,FormBuilder } from '@angular/forms';
 import { Departamento } from './bases/departamento';
 import { Cargo } from './bases/cargo';
 import { DepartamentoService } from './services/departamento.service';
+import { DeleteComponent } from './components/delete/delete.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -82,7 +83,7 @@ export class AppComponent implements OnInit {
 
   openAdd() {
     // this.dialogo.open(NewUserComponent);
-    const dialogReferencia = this.dialogo.open(NewUserComponent);
+    const dialogReferencia = this.dialogo.open(NewUserComponent,{width: '25%', height:'60%'});
     dialogReferencia.afterClosed().subscribe({
       next: (data) => {
         if (data) {
@@ -107,18 +108,30 @@ export class AppComponent implements OnInit {
     });
   }
 
-  delete(id:number){
-    this.service.delete(id).subscribe({
+
+  openDelete(data:any) {
+    const dialogReferencia = this.dialogo.open(DeleteComponent, {
+      data: data, width: '300px', // Ancho del diálogo
+      height: '200px', // Alto del diálogo
+    }
+
+
+
+
+
+
+
+    );
+
+    dialogReferencia.afterClosed().subscribe({
       next: (data) => {
         if (data) {
-          this.snackBar.open('Eliminado', 'X', {
-            duration: 3000, // Duración en milisegundos
-          });
           this.get();
-
-
         }
       },
     });
+
   }
+
+
 }

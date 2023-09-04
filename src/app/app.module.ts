@@ -19,8 +19,9 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSelectModule} from '@angular/material/select';
+import { DeleteComponent } from './components/delete/delete.component';
 @NgModule({
-  declarations: [AppComponent, NewUserComponent, UpdateUserComponent],
+  declarations: [AppComponent, NewUserComponent, UpdateUserComponent, DeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

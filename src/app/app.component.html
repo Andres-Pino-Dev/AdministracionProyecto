@@ -16,7 +16,7 @@
   </mat-select>
   <span class="example-spacer"></span>
   <button mat-raised-button (click)="openAdd()">
-    Crear Nuevo Usaurio
+    Crear Nuevo Usuario
   </button>
 </mat-toolbar>
 
@@ -63,7 +63,7 @@
             <mat-icon aria-label="Edit" >edit</mat-icon>
         </button>
 
-        <button mat-icon-button color="accent"  (click)="delete(element.id)">
+        <button mat-icon-button color="accent"  (click)="openDelete(element.id)">
             <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
     </td>
