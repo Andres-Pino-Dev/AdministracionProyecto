@@ -1,16 +1,18 @@
 
 <mat-toolbar >
 
-  <mat-select style="width: 10%;" placeholder="Seleccionar"  required>
+  <mat-select style="width: 10%;" placeholder="Seleccionar"  required >
 
     <mat-option *ngFor="let dep of departamentos" [value]="dep.id">
       {{ dep.nombre }}
     </mat-option>
   </mat-select>
 
-  <mat-select style="width: 10%;margin-left: 5%;" placeholder="Seleccionar"  required>
+  <mat-select style="width: 10%;margin-left: 5%;"  placeholder="Seleccionar"  required
 
-    <mat-option *ngFor="let car of cargos" [value]="car.id">
+  >
+
+    <mat-option *ngFor="let car of cargos" [value]="car.id"   >
       {{ car.nombre }}
     </mat-option>
   </mat-select>
@@ -49,11 +51,11 @@
   </ng-container>
   <ng-container matColumnDef="idDepartamento">
     <th mat-header-cell *matHeaderCellDef> Dpartamento </th>
-    <td mat-cell *matCellDef="let user "> {{user.idDepartamento}} </td>
+    <td mat-cell *matCellDef="let user "> {{user.departamento}} </td>
   </ng-container>
   <ng-container matColumnDef="idCargo">
     <th mat-header-cell *matHeaderCellDef> Cargo </th>
-    <td mat-cell *matCellDef="let user "> {{user.idCargo}} </td>
+    <td mat-cell *matCellDef="let user "> {{user.cargo}} </td>
   </ng-container>
   <ng-container matColumnDef="acciones">
     <th mat-header-cell *matHeaderCellDef> Acciones </th>

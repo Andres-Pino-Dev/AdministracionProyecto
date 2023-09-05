@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DepartamentoService } from 'src/app/services/departamento.service';
 import { Departamento } from 'src/app/bases/departamento';
 import { Cargo } from 'src/app/bases/cargo';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -25,6 +26,14 @@ export class UpdateUserComponent  implements OnInit{
   users: User[] = [];
   departamentos:Departamento[]=[];
   cargos:Cargo[]=[];
+
+pipeDate=inject(DatePipe);
+
+
+formatar(fecha: Date){
+  return this.pipeDate.transform(fecha, 'yyyy-MM-dd');
+
+}
 
   constructor(private service: UserService,@Inject(MAT_DIALOG_DATA) public data: any,private fb_data: FormBuilder,public dialogo: MatDialogRef<UpdateUserComponent>,private snackBar: MatSnackBar,private servideDepartament:DepartamentoService) {
   console.log('data', data)

@@ -11,14 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class DepartamentoService {
 
-  private url_base: string = 'https://localhost:44389/api/';
+  private url_base: string = 'https://localhost:44389/api/v1';
   constructor(private http: HttpClient) {}
 
   getDepartamento(): Observable<Departamento[]> {
-    return this.http.get<Departamento[]>(`${this.url_base}/departamento`);
+    return this.http.get<Departamento[]>(`${this.url_base}/departamentos`);
   }
 
   getDCargo(): Observable<Departamento[]> {
-    return this.http.get<Departamento[]>(`${this.url_base}/cargo`);
+    return this.http.get<Departamento[]>(`${this.url_base}/cargos`);
   }
 }

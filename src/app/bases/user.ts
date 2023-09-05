@@ -1,3 +1,4 @@
+import { Cargo } from 'src/app/bases/cargo';
 export class User {
   id: number = 0;
   usuario: string = '';
@@ -6,6 +7,8 @@ export class User {
   segundoApellido: string = '';
   idDepartamento: number = 0;
   idCargo: number = 0;
+  departamento: string = '';
+  cargo: string = '';
 
 }
 

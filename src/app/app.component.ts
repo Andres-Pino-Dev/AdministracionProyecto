@@ -36,8 +36,8 @@ export class AppComponent implements OnInit {
   frm_deps!: FormGroup;
   fb = inject(FormBuilder);
 
-
-
+  selectedDep: any;
+  selectedCarg: any;
 
   // users: User[] = [{id:1,usuario:'were', primerNombre:'dddd',segundoNombre:'ersr',segundoApellido:'sdsd',idDepartamento:1,idCargo:1}];
   users: User[] = [];
@@ -84,6 +84,8 @@ export class AppComponent implements OnInit {
   openAdd() {
     // this.dialogo.open(NewUserComponent);
     const dialogReferencia = this.dialogo.open(NewUserComponent,{width: '25%', height:'60%'});
+
+
     dialogReferencia.afterClosed().subscribe({
       next: (data) => {
         if (data) {
@@ -131,6 +133,11 @@ export class AppComponent implements OnInit {
       },
     });
 
+  }
+
+
+  getByDeps(){
+   console.log("dfdfdfdf");
   }
 
 

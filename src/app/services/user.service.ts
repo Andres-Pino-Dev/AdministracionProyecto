@@ -8,7 +8,7 @@ import { User } from '../bases/user';
   providedIn: 'root',
 })
 export class UserService {
-  private url_base: string = 'https://localhost:44389/api/user';
+  private url_base: string = 'https://localhost:44389/api/v1/usuarios';
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<User[]> {
@@ -16,7 +16,7 @@ export class UserService {
   }
 
   add(user:User): Observable<Object> {
-    return this.http.post(`${this.url_base}`,user);
+    return this.http.post(`${this.url_base}/save`,user);
   }
 
   update(user:User): Observable<Object> {
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   delete(id:number): Observable<Object> {
-    return this.http.delete(`${this.url_base}/${id}`);
+    return this.http.delete(`${this.url_base}/delete/${id}`);
   }
 
 
@@ -34,6 +34,8 @@ export class UserService {
 
 
   getUsersByDepartamentosAandCargo(idDepartamento:number,idCargo:number): Observable<User[]> {
+
+
     return this.http.get<User[]>(`${this.url_base}/${idDepartamento}/${idCargo}`);
   }
 }
